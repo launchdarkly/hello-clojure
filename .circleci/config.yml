@@ -30,8 +30,8 @@ jobs:
       - run:
           name: insert SDK key and flag key into demo code
           command: |
-            sed -i.bak "s/sdk-key *\".*\"/sdk-key \(System\/getenv \"LD_HELLO_WORLD_SDK_KEY\"\)/" src/*
-            sed -i.bak "s/flag-key *\".*\"/flag-key \(System\/getenv \"LD_HELLO_WORLD_FLAG_KEY_WITH_TRUE_VALUE\"\)/" src/*
+            sed -i.bak "s/sdk-key *\".*\"/sdk-key \(System\/getenv \"LD_HELLO_WORLD_SDK_KEY\"\)/" src/hello.clj
+            sed -i.bak "s/flag-key *\".*\"/flag-key \(System\/getenv \"LD_HELLO_WORLD_FLAG_KEY_WITH_TRUE_VALUE\"\)/" src/hello.clj
       - run:
           name: run demo
           command: |
