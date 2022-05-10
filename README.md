@@ -6,7 +6,7 @@ or the [Java SDK reference guide](https://docs.launchdarkly.com/sdk/server-side/
 
 ## Build instructions
 
-This project uses the [Clojure CLI](https://clojure.org/reference/deps_and_cli). It requires that Java is already installed on your system (version 8 or higher). It will automatically use the latest version of the LaunchDarkly Java SDK with major version 5.
+This project uses the [Leiningen](https://leiningen.org/) build tool. It requires that Java is already installed on your system (version 8 or higher). It will automatically use the latest version of the LaunchDarkly Java SDK with major version 5.
 
 1. Edit `src/hello.clj` and set the value of `sdk-key` to your LaunchDarkly SDK key. If there is an existing boolean feature flag in your LaunchDarkly project that you want to evaluate, set `flag-key` to the flag key.
 
@@ -16,8 +16,8 @@ This project uses the [Clojure CLI](https://clojure.org/reference/deps_and_cli).
 (def flag-key "my-feature-flag-key")
 ```
 
-2. On the command line, run `clj -M -m hello`.
+2. On the command line, run `lein run`.
 
 You should see the message `"Feature flag '<flag key>' is <true/false> for this user"`.
 
-A second namespace with richer examples can be found in `more_examples.clj`, and can be run via `clj -M -m more-examples`.
+A second namespace with richer examples can be found in `more_examples.clj`, and can be run via `lein run -m more-examples`.
