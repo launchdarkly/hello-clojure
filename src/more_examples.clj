@@ -13,7 +13,7 @@
 
 ;; Example of setting configuration on the LDClient
 (defn client-with-more-configuration
-  "Example of creating an LDClient with several configuration options set.
+  "Example of creating an LDClient with some configuration options set.
 
   See the Javadocs for the full set of config options:
   https://launchdarkly.github.io/java-server-sdk/com/launchdarkly/sdk/server/LDConfig.Builder.html"
@@ -28,10 +28,6 @@
        (events
         (.. (Components/sendEvents)
             (flushInterval (Duration/ofSeconds 10))))
-       (applicationInfo
-        (.. (Components/applicationInfo)
-            (applicationId "hello-clojure")
-            (applicationVersion "1.0.0")))
        (build))))
 
 (defn user-with-more-parameters
