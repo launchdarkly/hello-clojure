@@ -55,7 +55,7 @@
 (defn -main
   [& args]
   (when (= "" sdk-key)
-    (println "Please edit hello.clj to set sdk-key to your LaunchDarkly SDK key first.")
+    (println "Please edit more_examples.clj to set sdk-key to your LaunchDarkly SDK key first.")
     (System/exit 1))
   (with-open [^LDClient client (client-with-more-configuration)]
     (let [flag-value (.boolVariation client flag-key (user-with-more-parameters) false)]
