@@ -1,2 +1,4 @@
 {:deps
- {com.launchdarkly/launchdarkly-java-server-sdk {:mvn/version "5.8.1"}}}
+ {com.launchdarkly/launchdarkly-java-server-sdk {:mvn/version "5.8.1"}
+  org.slf4j/slf4j-simple {:mvn/version "1.7.22"}}
+ :paths ["src/" "resources/"]}
