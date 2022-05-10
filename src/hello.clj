@@ -1,4 +1,5 @@
 (ns hello
+  "A simple 'Hello World' LaunchDarkly application."
   (:import
    (com.launchdarkly.sdk.server LDClient)
    (com.launchdarkly.sdk LDUser$Builder)))

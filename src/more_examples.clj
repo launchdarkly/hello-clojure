@@ -1,5 +1,5 @@
 (ns more-examples
-  "Additional examples that illustrate how to interop with the Java SDK from Clojure."
+  "Additional examples of Clojure interop with different Java SDK features."
   (:import
    (com.launchdarkly.sdk.server Components LDClient LDConfig$Builder)
    (com.launchdarkly.sdk LDUser$Builder LDValue)
