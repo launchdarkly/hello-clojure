@@ -1,7 +1,7 @@
 (ns hello
   (:import
-   (com.launchdarkly.sdk.server LDClient LDConfig)
-   (com.launchdarkly.sdk LDUser LDUser$Builder)))
+   (com.launchdarkly.sdk.server LDClient)
+   (com.launchdarkly.sdk LDUser$Builder)))
 
 ;; Put your SDK key here
 (def sdk-key "")
@@ -9,6 +9,7 @@
 ;; Set the feature flag you want to evaluate
 (def flag-key "my-boolean-flag")
 
+;; Basic hello world test
 (defn -main
   [& args]
   (when (= "" sdk-key)
