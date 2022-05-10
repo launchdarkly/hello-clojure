@@ -1,6 +1,5 @@
 (defproject hello-clojure "0.0.1"
-  ;; Don't warn about version ranges
-  :pedantic? false
+  :pedantic? false ; Don't warn about version ranges
   :dependencies [[org.clojure/clojure "1.11.1"]
 
                  [com.launchdarkly/launchdarkly-java-server-sdk "[5.0,6.0)"]
