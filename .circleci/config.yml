@@ -37,3 +37,8 @@ jobs:
           command: |
             lein run | tee output.txt
             grep "is true for this user" output.txt || (echo "Flag did not evaluate to expected true value" && exit 1)
+      - run:
+          name: run additional examples
+          command: |
+            lein run -m more-examples | tee output.txt
+            grep "is true for this user" output.txt || (echo "Flag did not evaluate to expected true value" && exit 1)
