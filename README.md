@@ -19,5 +19,3 @@ This project uses the [Leiningen](https://leiningen.org/) build tool. It require
 2. On the command line, run `lein run`.
 
 You should see the message `"Feature flag '<flag key>' is <true/false> for this user"`.
-
-A second namespace with richer examples can be found in `more_examples.clj`, and can be run via `lein run -m more-examples`.
