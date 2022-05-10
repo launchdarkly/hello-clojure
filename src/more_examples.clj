@@ -11,20 +11,6 @@
 ;; Set the feature flag you want to evaluate
 (def flag-key "my-boolean-flag")
 
-;; Example of targeting a user with several parameters
-(defn user-with-more-parameters
-  "https://docs.launchdarkly.com/sdk/features/user-config#java"
-  []
-  (.. (LDUser$Builder. "example-user-key2")
-      (name "Ernestina Evans")
-      (email "ernestina@example.com")
-      ;; Users also support "custom" attributes, which are arbitrary data.
-      (custom "groups" (.. (LDValue/buildArray)
-                           (add "Google")
-                           (add "Microsoft")
-                           (build)))
-      (build)))
-
 ;; Example of setting configuration on the LDClient
 (defn client-with-more-configuration
   "The LDClient optionally takes a variety of config parameters.
@@ -48,6 +34,20 @@
             (applicationId "hello-clojure")
             (applicationVersion "1.0.0")))
        (build))))
+
+;; Example of targeting a user with several parameters
+(defn user-with-more-parameters
+  "https://docs.launchdarkly.com/sdk/features/user-config#java"
+  []
+  (.. (LDUser$Builder. "example-user-key2")
+      (name "Ernestina Evans")
+      (email "ernestina@example.com")
+      ;; Users also support "custom" attributes, which are arbitrary data.
+      (custom "groups" (.. (LDValue/buildArray)
+                           (add "Google")
+                           (add "Microsoft")
+                           (build)))
+      (build)))
 
 (defn -main
   [& args]
