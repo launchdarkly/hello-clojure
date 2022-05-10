@@ -18,9 +18,6 @@
   (.. (LDUser$Builder. "example-user-key2")
       (name "Ernestina Evans")
       (email "ernestina@example.com")
-      ;; Most attributes can optionally be marked "private", i.e. they can be used in targeting rules,
-      ;; but won't be sent back to LaunchDarkly.
-      (privateIp "1.2.3.4")
       ;; Users also support "custom" attributes, which are arbitrary data.
       (custom "groups" (.. (LDValue/buildArray)
                            (add "Google")
