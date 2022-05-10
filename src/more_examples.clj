@@ -13,8 +13,7 @@
 
 ;; Example of setting configuration on the LDClient
 (defn client-with-more-configuration
-  "The LDClient optionally takes a variety of config parameters.
-  This example illustrates some of the different config options and how to interop with them from Clojure.
+  "Example of creating an LDClient with several configuration options set.
 
   See the Javadocs for the full set of config options:
   https://launchdarkly.github.io/java-server-sdk/com/launchdarkly/sdk/server/LDConfig.Builder.html"
@@ -35,9 +34,11 @@
             (applicationVersion "1.0.0")))
        (build))))
 
-;; Example of targeting a user with several parameters
 (defn user-with-more-parameters
-  "https://docs.launchdarkly.com/sdk/features/user-config#java"
+  "Example of targeting a user with multiple attributes.
+
+  For more info on user attributes:
+  https://docs.launchdarkly.com/sdk/features/user-config#java"
   []
   (.. (LDUser$Builder. "example-user-key2")
       (name "Ernestina Evans")
