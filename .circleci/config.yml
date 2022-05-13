@@ -1,0 +1,39 @@
+version: 2.1
+
+workflows:
+  test:
+    jobs:
+      - build-run-linux:
+          context: hello-world-demos
+
+  test-daily:
+    triggers:
+    - schedule:
+        cron: "0 6 * * *"
+        filters:
+          branches:
+            only: main
+    jobs:
+    - build-run-linux:
+        context: hello-world-demos
+
+# This CI build ensures that the demo both compiles and works correctly. For the runtime test,
+# we use an SDK key and flag key that are passed in via the CircleCI project configuration;
+# the flag is configured to return a true value.
+
+jobs:
+  build-run-linux:
+    docker:
+      - image: cimg/clojure:1.11.1 # this tag is misleading: it doesn't dictate what version of Clojure we use (project.clj does)
+    steps:
+      - checkout
+      - run:
+          name: insert SDK key and flag key into demo code
+          command: |
+            sed -i.bak "s/sdk-key *\".*\"/sdk-key \(System\/getenv \"LD_HELLO_WORLD_SDK_KEY\"\)/" src/hello.clj
+            sed -i.bak "s/flag-key *\".*\"/flag-key \(System\/getenv \"LD_HELLO_WORLD_FLAG_KEY_WITH_TRUE_VALUE\"\)/" src/hello.clj
+      - run:
+          name: run demo
+          command: |
+            lein run | tee output.txt
+            grep "is true for this user" output.txt || (echo "Flag did not evaluate to expected true value" && exit 1)
