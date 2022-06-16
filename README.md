@@ -18,4 +18,4 @@ This project uses the [Leiningen](https://leiningen.org/) build tool. It require
 
 2. On the command line, run `lein run`.
 
-You should see the message `"Feature flag '<flag key>' is <true/false> for this user"`.
+You should receive the message `"Feature flag '<flag key>' is <true/false> for this user"`.

@@ -4,10 +4,10 @@
    (com.launchdarkly.sdk.server LDClient)
    (com.launchdarkly.sdk LDUser$Builder)))
 
-;; Put your SDK key here
+;; Set sdk-key to to your LaunchDarkly SDK key.
 (def sdk-key "")
 
-;; Set the feature flag you want to evaluate
+;; Set flag-key to the feature flag key you want to evaluate.
 (def flag-key "my-boolean-flag")
 
 ;; Basic hello world test
@@ -16,8 +16,12 @@
   (when (= "" sdk-key)
     (println "*** Please edit hello.clj to set sdk-key to your LaunchDarkly SDK key first.\n")
     (System/exit 1))
-  ;; Here we set up the client, and use `with-open` to ensure the client gets cleanly shutdown before
-  ;; the program exits, to deliver any analytics events still waiting in the buffer.
+  ;; Here we set up the client, and use `with-open` to ensure that the SDK shuts down
+  ;; cleanly and has a chance to deliver analytics events to LaunchDarkly before
+  ;; the program exits. If analytics events are not delivered, the user properties
+  ;; and flag usage statistics will not appear on your dashboard. In a normal
+  ;; long-running application, the SDK would continue running and events would be 
+  ;; delivered automatically in the background.
   (with-open [client (LDClient. sdk-key)]
     (if (.isInitialized client)
       (println "*** SDK successfully initialized!\n")
